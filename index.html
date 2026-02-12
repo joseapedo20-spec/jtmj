@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Question importante 💘</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 100px;
+      font-size: 2.5em;
+      color: #b0004b;
+    }
+
+    .buttons {
+      margin-top: 50px;
+    }
+
+    button {
+      padding: 15px 35px;
+      font-size: 1.4em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 15px;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background-color: #ccc;
+      color: #555;
+      position: absolute;
+    }
+
+    #result {
+      display: none;
+      margin-top: 40px;
+      font-size: 2em;
+      color: #4b004f;
+    }
+
+    /* ✨ Paillettes */
+    .sparkle {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: gold;
+      border-radius: 50%;
+      animation: fall 3s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>
+    Veux-tu être ma petite amie ? ❤️
+  </h1>
+
+  <div class="buttons">
+    <button class="yes" onclick="oui()">Oui 😍</button>
+    <button class="no" id="noBtn">Non 🙄</button>
+  </div>
+
+  <div id="result">
+    😂 Je savais que tu pouvais pas dire non ❤️✨
+  </div>
+
+  <script>
+    function oui() {
+      document.getElementById("result").style.display = "block";
+
+      // Générer paillettes
+      for (let i = 0; i < 60; i++) {
+        const s = document.createElement("div");
+        s.className = "sparkle";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        document.body.appendChild(s);
+      }
+    }
+
+    // Bouton NON impossible 😈
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+  </script>
+
+</body>
+</html>
